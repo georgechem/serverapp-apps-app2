@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('defaultIndex') }}
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    {{ encore_entry_script_tags('defaultIndex') }}
+{% endblock %}

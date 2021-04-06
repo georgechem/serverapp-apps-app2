@@ -4,7 +4,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8.0.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "symfony/console": "5.2.*",
@@ -57,5 +57,7 @@
             "allow-contrib": false,
             "require": "5.2.*"
         }
-    }
+    },
+    "name": "georgechem/apps-app2",
+    "description": ""
 }

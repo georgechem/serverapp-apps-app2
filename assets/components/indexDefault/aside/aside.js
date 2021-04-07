@@ -1,10 +1,14 @@
-const menu = document.getElementById('aside');
+const menuBtn = document.getElementById('aside');
 
-function moveMenu(){
-    console.log('move');
+function moveMenu(menu){
+    menu.style.transform = 'translate(1px, 1px)';
+    console.log(menu);
+
+
 }
 
 
-menu.addEventListener('click', ()=>{
-    moveMenu();
+menuBtn.addEventListener('click', function(){
+    const menu = this;
+    moveMenu(menu);
 });

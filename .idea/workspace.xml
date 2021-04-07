@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6958d331-8854-4597-9189-cfb042a1e29c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/components/indexDefault/aside/aside.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/indexDefault/aside/aside.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/indexDefault/main/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/indexDefault/main/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/defaultIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/defaultIndex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/defaultIndex.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/defaultIndex.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +118,11 @@
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\symfony\serverapp\apps\app2\assets\components\indexDefault" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -123,6 +134,7 @@
       <workItem from="1617652013225" duration="460000" />
       <workItem from="1617652480514" duration="727000" />
       <workItem from="1617695743729" duration="178000" />
+      <workItem from="1617811178445" duration="1320000" />
     </task>
     <task id="LOCAL-00001" summary="ok">
       <created>1617696097494</created>

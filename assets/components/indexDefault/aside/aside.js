@@ -8,11 +8,14 @@ function sideMenu(icon){
             console.log(subMenu.id);
             subMenu.classList.add('hidden');
         }else{
-            subMenu.classList.remove('hidden');
+            subMenu.classList.toggle('hidden');
 
         }
         if(icon === 'home'){
             subMenu.style.top = '30px';
+        }
+        if(icon === 'users'){
+            subMenu.style.top = '97px';
         }
     })
 

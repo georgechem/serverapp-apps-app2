@@ -1,5 +1,14 @@
 const menuSide = document.getElementsByClassName('menuSide');
 const menuIcons = document.getElementsByClassName('menu__icons');
+const menuSideUls = document.querySelectorAll('.menuSide > ul');
+
+
+menuSideUls.forEach((menuSideUl)=>{
+    menuSideUl.addEventListener('mouseover',function(){
+        console.log(menuSideUl);
+    });
+})
+
 
 function sideMenu(icon){
     console.log(icon);

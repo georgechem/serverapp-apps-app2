@@ -5,4 +5,19 @@
   color: #ccc;
   min-height: 100vh;
   cursor:pointer;
+  &__icons{
+    text-align: right;
+    margin: 15px 5px;
+    font-size: 1.5rem;
+    &__home{
+      margin: 20px 0;
+    }
+    &__users{
+      margin: 20px 0;
+    }
+  }
+}
+.hidden {
+  display: none;
+  visibility: hidden;
 }

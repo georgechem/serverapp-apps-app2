@@ -1,4 +1,5 @@
 const menuBtn = document.getElementById('aside');
+const menuIcons = document.getElementById('menu--icons');
 
 function moveMenu(menu){
     let menuTransform = menu.style.transform;
@@ -17,9 +18,12 @@ function moveMenu(menu){
             iterations: 1,
         }).finished.then(()=>{
             menu.style.transform = `translate(-200px, 0px)`;
+            menuIcons.classList.remove('hidden');
         });
 
+
     }else{
+        menuIcons.classList.add('hidden');
         menu.animate([
             {transform: 'translate(0px,0px)'}
         ],{

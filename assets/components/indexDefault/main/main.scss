@@ -1,7 +1,8 @@
 .content{
-  transform: translate(-200px, 0px);
-  position: relative;
-  max-width: 100%;
+  margin: 10px 5px 10px 45px;
   background-color: #aaa;
   color: #000;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

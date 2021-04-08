@@ -4,6 +4,7 @@
     <list default="true" id="6958d331-8854-4597-9189-cfb042a1e29c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/indexDefault/aside/aside.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/indexDefault/aside/aside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/indexDefault/aside/aside.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/indexDefault/aside/aside.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +129,8 @@
       <workItem from="1617652013225" duration="460000" />
       <workItem from="1617652480514" duration="727000" />
       <workItem from="1617695743729" duration="178000" />
-      <workItem from="1617811178445" duration="5920000" />
+      <workItem from="1617811178445" duration="6316000" />
+      <workItem from="1617892433652" duration="2002000" />
     </task>
     <task id="LOCAL-00001" summary="ok">
       <created>1617696097494</created>
@@ -200,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617827908389</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="x and y">
+      <created>1617828476484</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617828476484</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +229,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="x and y" />
+    <option name="LAST_COMMIT_MESSAGE" value="x and y" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,7 +1,7 @@
 const menuBtn = document.getElementById('aside');
 
 function moveMenu(menu){
-    const menuTransform = menu.style.transform = 'translate(0px, 0px)';
+    let menuTransform = menu.style.transform;
     const indexStart = menuTransform.indexOf('(');
     const indexEnd = menuTransform.indexOf(')');
     const textBetweenStartEnd = menuTransform.slice(indexStart+1,indexEnd);
@@ -9,7 +9,26 @@ function moveMenu(menu){
     const [a, b] = splitResult;
     let x = parseInt(a);
     let y = parseInt(b);
+    if(x === 0 ){
+        menu.animate([
+            {transform: 'translate(-200px,0px)'}
+        ],{
+            duration: 300,
+            iterations: 1,
+        }).finished.then(()=>{
+            menu.style.transform = `translate(-200px, 0px)`;
+        });
 
+    }else{
+        menu.animate([
+            {transform: 'translate(0px,0px)'}
+        ],{
+            duration: 300,
+            iterations: 1,
+        }).finished.then(()=>{
+            menu.style.transform = `translate(0px, 0px)`;
+        });
+    }
 
 
 }

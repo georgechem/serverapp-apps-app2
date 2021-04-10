@@ -13,7 +13,64 @@
 
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <div class="defaultIndex">
+        <aside class="menu" id="aside">
+            <div id="menu--icons" class="menu__icons">
+                <div class="menu__icons__home">
+                    <i id="home" class="fas fa-home"></i>
+                </div>
+                <div class="menu__icons__users">
+                    <i id="users" class="fas fa-users"></i>
+                </div>
+                <div class="menu__icons__settings">
+                    <i id="settings" class="fas fa-cogs"></i>
+                </div>
+                <div class="menu__icons__files">
+                    <i id="files" class="fas fa-file"></i>
+                </div>
+                <div class="menu__icons__info">
+                    <i id="info" class="fas fa-info"></i>
+                </div>
+            </div>
+        </aside>
+        <div id="homeSide" class="menuSide hidden">
+            <ul>
+                <li>
+                    <a href="{{ path('homepage') }}">home</a>
+                </li>
+                <li>
+                    <a href="">dashboard</a>
+                </li>
+                <li>
+                    <a href="">optional</a>
+                </li>
+            </ul>
+        </div>
+        <div id="usersSide" class="menuSide hidden">
+            <ul>
+                {% if app.user is defined%}
+                    <li>
+                        <a href="{{ path('app_login') }}">log in</a>
+                    </li>
+                    <li>
+                        <a href="">register</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="">log out</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <main class="content" id="main">
+            <div> 1gfdgfdgdffd
+                gfdgfdgdf
+                gfdgdf</div>
+        </main>
+    </div>
+
+
+    {% block body %}{% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

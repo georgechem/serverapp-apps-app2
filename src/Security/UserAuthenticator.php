@@ -15,7 +15,7 @@ class UserAuthenticator extends AbstractGuardAuthenticator
     {
         // todo
         if($request->attributes->get('_route') === 'app_login'){
-            dd('login');
+            //dd('login');
         }
     }
 

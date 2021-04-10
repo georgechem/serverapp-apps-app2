@@ -13,25 +13,30 @@ class UserAuthenticator extends AbstractGuardAuthenticator
 {
     public function supports(Request $request)
     {
-        // todo
-        if($request->attributes->get('_route') === 'app_login'){
-            //dd('login');
+
+        if($request->attributes->get('_route') === 'app_login' && $request->isMethod('post')){
+            return true;
         }
+        return false;
     }
 
     public function getCredentials(Request $request)
     {
-        // todo
+        return $request->request->get('login');
+
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        // todo
+        if(null === $credentials){
+            return null;
+        }
+        return $userProvider->loadUserByUsername($credentials['email']);
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        // todo
+        dd($credentials, $user);
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)

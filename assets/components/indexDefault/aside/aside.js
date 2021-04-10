@@ -3,9 +3,11 @@ const menuSide = document.getElementsByClassName('menuSide');
 const menuIcons = document.getElementsByClassName('menu__icons');
 const menuSideUls = document.querySelectorAll('.menuSide > ul > li');
 
-
+/**
+ * Menu Side MouseEnter - MouseLeave
+ */
 menuSideUls.forEach((menuSideUl)=>{
-    menuSideUl.addEventListener('mouseover',function(){
+    menuSideUl.addEventListener('mouseenter',function(){
         const link = menuSideUl.children[0];
         link.style.color = '#111';
     });

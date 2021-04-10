@@ -66,34 +66,29 @@
   visibility: hidden;
 }
 .menuSide {
-  margin: 10px 0;
+  top: 0;
+  height: 100vh;
   text-align: center;
   padding: 10px;
   color:#ccc;
-  background-color: #222;
+  background-color: #111;
   left:40px;
   position: absolute;
-  border-radius: 0 5px 5px 0;
-  &:hover{
-    background-color: white;
-    opacity: 0.5;
-  }
+  //border-radius: 0 5px 5px 0;
   & > ul {
     margin: 20px 15px;
     & > li{
       padding: 5px;
-      border: 1px solid red;
       margin: 15px 10px;
       list-style: none;
       &:hover{
-        background: transparent;
-        opacity: 0;
-        //background-color: transparent;
+        border-radius: 5px;
+        background-color: #fff;
       }
       & > a{
         padding: 5px;
         font-size: 1.5rem;
-        color: #ccc;
+        color: #ddd;
         text-decoration: none;
       }
     }

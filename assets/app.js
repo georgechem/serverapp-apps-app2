@@ -24,3 +24,8 @@ import './components/indexDefault/aside/aside';
  */
 import './components/indexDefault/main/main.scss';
 import './components/indexDefault/main/main';
+
+/**
+ * Login Form styles
+ */
+import './components/indexDefault/forms/login.scss';

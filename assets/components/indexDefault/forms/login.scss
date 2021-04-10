@@ -1,0 +1,27 @@
+.Login{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  &__form{
+    font-family: sans-serif;
+    padding: 10px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    &__input{
+      text-align: center;
+      padding: 5px;
+    }
+    &__label{
+      padding: 5px;
+      text-align: center;
+      display: block;
+    }
+    &__submit{
+      cursor: pointer;
+      width: 100%;
+      margin:10px 0;
+      font-size: 1.3rem;
+      padding: 5px;
+    }
+  }
+}

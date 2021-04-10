@@ -4,8 +4,12 @@
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
-
 {% block body %}
+    <div class="Login">
+        <div class="Login__form">
+            {{ form(form) }}
+        </div>
+    </div>
 
 {% endblock %}
 {% block javascripts %}

@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
@@ -31,7 +32,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request):Response
+    public function register(Request $request, UserPasswordEncoderInterface $encoder):Response
     {
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -39,7 +40,11 @@ class UserController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
-            dd($user);
+            $user->setPassword($encoder->encodePassword($user,$user->getPassword()));
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            //dd($user);
         }
 
         return $this->render('user/index.html.twig', [

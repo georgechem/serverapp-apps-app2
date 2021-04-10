@@ -30,6 +30,7 @@ class RegisterType extends AbstractType
             ])
             ->add('register',SubmitType::class,[
                 'attr'=>['class'=>'Login__form__submit'],
+                'disabled'=>true,
             ])
             ->setMethod('post')
             ->setMapped(true)

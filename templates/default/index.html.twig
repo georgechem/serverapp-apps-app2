@@ -30,27 +30,30 @@
         <div id="homeSide" class="menuSide hidden">
             <ul>
                 <li>
-                    <a href="">link 1</a>
+                    <a href="">home</a>
                 </li>
                 <li>
-                    <a href="">link link1 2</a>
+                    <a href="">dashboard</a>
                 </li>
                 <li>
-                    <a href=""> link link1 link2 3</a>
+                    <a href="">optional</a>
                 </li>
             </ul>
         </div>
         <div id="usersSide" class="menuSide hidden">
             <ul>
+                {% if app.user is defined%}
                 <li>
-                    <a href="">link 4</a>
+                    <a href="">log in</a>
                 </li>
                 <li>
-                    <a href="">link 5</a>
+                    <a href="">register</a>
                 </li>
+                {% else %}
                 <li>
-                    <a href=""> link 6</a>
+                    <a href="">log out</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
         <main class="content" id="main">

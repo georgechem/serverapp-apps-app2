@@ -76,7 +76,7 @@
   background-color: #111;
   left:40px;
   position: absolute;
-  //border-radius: 0 5px 5px 0;
+  font-family: sans-serif;
   & > ul {
     margin: 20px 10px;
     & > li{
@@ -88,6 +88,7 @@
         background-color: #fff;
       }
       & > a{
+        text-transform: uppercase;
         padding: 5px;
         font-size: 1.5rem;
         color: #ddd;

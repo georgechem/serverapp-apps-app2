@@ -9,10 +9,17 @@ menuSideUls.forEach((menuSideUl)=>{
         console.log(menuSideUl);
     });
 })
+/**
+ * Hide sub Menu if Menu bar clicked
+ */
 menu.addEventListener('click', ()=>{
     sideMenu('none');
 })
 
+/**
+ * Handling sub Menu
+ * @param icon
+ */
 function sideMenu(icon){
     //console.log(icon);
     menuSide.forEach((subMenu)=>{
@@ -28,7 +35,9 @@ function sideMenu(icon){
 
 }
 
-
+/**
+ * Action on icon Click in Menu
+ */
 menuIcons.forEach((icon)=>{
     icon.addEventListener('click',(e)=>{
         sideMenu(e.target.id);

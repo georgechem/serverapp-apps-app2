@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,18 +21,18 @@ class LoginType extends AbstractType
                 'attr'=>['class'=>'Login__form__input'],
                 'label_attr'=>['class'=>'Login__form__label'],
             ])
+            ->add('roles', HiddenType::class,[
+                'attr'=>['name'=>'ROLE_USER'],
+            ])
             ->add('password', PasswordType::class,[
                 'attr'=>['class'=>'Login__form__input'],
                 'label_attr'=>['class'=>'Login__form__label'],
-            ])
-            ->add('roles', HiddenType::class,[
-                'attr'=>['name'=>'ROLE_USER', 'value'=>'ROLE_USER'],
             ])
             ->add('login',SubmitType::class,[
                 'attr'=>['class'=>'Login__form__submit'],
             ])
             ->setMethod('post')
-            ->setMapped(true);
+            ->setMapped(true)
         ;
 
         $builder->get('roles')

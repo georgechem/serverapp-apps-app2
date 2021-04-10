@@ -27,12 +27,13 @@ class LoginType extends AbstractType
                 'label_attr'=>['class'=>'Login__form__label'],
             ])
             ->add('roles', HiddenType::class,[
-                'attr'=>['name'=>'ROLE_USER'],
+                'attr'=>['name'=>'ROLE_USER', 'value'=>'ROLE_USER'],
             ])
             ->add('login',SubmitType::class,[
                 'attr'=>['class'=>'Login__form__submit'],
             ])
             ->setMethod('post')
+            ->setMapped(true);
         ;
 
         $builder->get('roles')

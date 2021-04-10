@@ -68,6 +68,8 @@
 .menuSide {
   top: 0;
   height: 100vh;
+  width:100%;
+  max-width: 270px;
   text-align: center;
   padding: 10px;
   color:#ccc;
@@ -76,7 +78,7 @@
   position: absolute;
   //border-radius: 0 5px 5px 0;
   & > ul {
-    margin: 20px 15px;
+    margin: 20px 10px;
     & > li{
       padding: 5px;
       margin: 15px 10px;

@@ -7,7 +7,9 @@
     padding: 10px;
     background-color: #ddd;
     border: 1px solid #999;
+    text-align: center;
     &__input{
+      margin: 10px 15px;
       text-align: center;
       padding: 5px;
     }
@@ -18,8 +20,8 @@
     }
     &__submit{
       cursor: pointer;
-      width: 100%;
-      margin:10px 0;
+      width: 85%;
+      margin: 10px 15px;
       font-size: 1.3rem;
       padding: 5px;
     }

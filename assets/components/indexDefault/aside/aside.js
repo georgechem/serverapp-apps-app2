@@ -21,19 +21,30 @@ window.addEventListener('click',()=>{
    sideMenu('none');
 });
 
+function runAnimation(subMenu, down = true){
+    if(down){
+        subMenu.animate([
+            {transform: `translate(0px,-100vh)`},
+            {transform: `translate(0px, 0px)`}
+        ],{
+            duration: 400,
+            iterations: 1
+        })
+    }
+
+}
+
 /**
  * Handling sub Menu
  * @param icon
  */
 function sideMenu(icon){
-    //console.log(icon);
     menuSide.forEach((subMenu)=>{
         if(subMenu.id !== `${icon}Side`){
-            //console.log(subMenu.id);
             subMenu.classList.add('hidden');
         }else{
             subMenu.classList.toggle('hidden');
-
+            runAnimation(subMenu);
         }
 
     })

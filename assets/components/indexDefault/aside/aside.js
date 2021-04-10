@@ -1,3 +1,4 @@
+const menu = document.getElementById('aside');
 const menuSide = document.getElementsByClassName('menuSide');
 const menuIcons = document.getElementsByClassName('menu__icons');
 const menuSideUls = document.querySelectorAll('.menuSide > ul');
@@ -8,7 +9,9 @@ menuSideUls.forEach((menuSideUl)=>{
         console.log(menuSideUl);
     });
 })
-
+menu.addEventListener('click', ()=>{
+    sideMenu('none');
+})
 
 function sideMenu(icon){
     //console.log(icon);
@@ -28,9 +31,8 @@ function sideMenu(icon){
 
 menuIcons.forEach((icon)=>{
     icon.addEventListener('click',(e)=>{
-
         sideMenu(e.target.id);
-
+        e.stopPropagation();
 
 
     })

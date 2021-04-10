@@ -1,20 +1,25 @@
 const menu = document.getElementById('aside');
 const menuSide = document.getElementsByClassName('menuSide');
 const menuIcons = document.getElementsByClassName('menu__icons');
-const menuSideUls = document.querySelectorAll('.menuSide > ul');
+const menuSideUls = document.querySelectorAll('.menuSide > ul > li');
 
 
 menuSideUls.forEach((menuSideUl)=>{
     menuSideUl.addEventListener('mouseover',function(){
-        console.log(menuSideUl);
+        const link = menuSideUl.children[0];
+        link.style.color = '#111';
+    });
+    menuSideUl.addEventListener('mouseleave',function(){
+        const link = menuSideUl.children[0];
+        link.style.color = '#fff';
     });
 })
 /**
- * Hide sub Menu if Menu bar clicked
+ * Hide sub Menu if clicked somewhere else than link
  */
-menu.addEventListener('click', ()=>{
-    sideMenu('none');
-})
+window.addEventListener('click',()=>{
+   sideMenu('none');
+});
 
 /**
  * Handling sub Menu

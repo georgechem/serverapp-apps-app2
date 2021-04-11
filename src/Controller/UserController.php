@@ -23,7 +23,6 @@ class UserController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
-            dd($user);
         }
 
         return $this->render('user/index.html.twig', [

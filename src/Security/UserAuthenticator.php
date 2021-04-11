@@ -114,8 +114,9 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
         $userDir = $this->kernel->getProjectDir();
         $tmpFolder = $request->request->get('login')['email'];
         $folder = explode('.',$tmpFolder);
-        $this->filesystem->mkdir($userDir.'/users/'.$folder[0]);
-
+        if(!$this->filesystem->exists($userDir.'/users/'.$folder[0])){
+            $this->filesystem->mkdir($userDir.'/users/'.$folder[0]);
+        }
         $targetPath = $this->urlGenerator->generate('homepage');
         return new RedirectResponse($targetPath);
     }

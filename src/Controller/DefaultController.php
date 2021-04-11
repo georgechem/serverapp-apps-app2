@@ -11,6 +11,14 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
+        /**
+         * Get Root Directory for All Users
+         * Get Specific Folder for certain User
+         * Combine Full Path for User specific files
+         */
+        $fullPath = $this->getParameter('userRoot').explode('.',$this->getUser()->getUsername())[0].'/';
+
+
         return $this->render('default/index.html.twig', [
 
         ]);

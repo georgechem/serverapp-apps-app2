@@ -21,22 +21,22 @@ class FilesController extends AbstractController
          * Get Specific Folder for certain User
          * Combine Full Path for User specific files
          */
-        $fullPath = $this->getParameter('userRoot').explode('.',$this->getUser()->getUsername())[0].'/';
-
+        //$fullPath = $this->getParameter('userRoot').explode('.',$this->getUser()->getUsername())[0].'/';
+        $path = './users/';
         /**
          * Read user directory
          */
-        $catalog = opendir($fullPath);
+        $catalog = opendir($path);
         $fileList = [];
         $fileInfo = [];
         while(false !== ($file = readdir($catalog))){
             if($file !== '.' && $file !== '..'){
                 $fileList[] = $file;
-                $filesystem->symlink($fullPath.$file, $file);
+                //$filesystem->symlink($fullPath.$file, '/users/'.$file);
                 $fileInfo[] = [
-                    'size'=>filesize($fullPath.$file),
+                    'size'=>filesize($path.$file),
                     'fileOwner'=>$this->getUser()->getUsername(),
-                    'fileLink'=>$filesystem->readlink($file),
+                    'fileLink'=>'',
                 ];
             }
         }

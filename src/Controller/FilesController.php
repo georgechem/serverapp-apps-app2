@@ -22,7 +22,7 @@ class FilesController extends AbstractController
          * Combine Full Path for User specific files
          */
         //$fullPath = $this->getParameter('userRoot').explode('.',$this->getUser()->getUsername())[0].'/';
-        $path = './users/';
+        $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
         /**
          * Read user directory
          */
@@ -36,7 +36,7 @@ class FilesController extends AbstractController
                 $fileInfo[] = [
                     'size'=>filesize($path.$file),
                     'fileOwner'=>$this->getUser()->getUsername(),
-                    'fileLink'=>'',
+                    'fileLink'=>$path.$file,
                 ];
             }
         }

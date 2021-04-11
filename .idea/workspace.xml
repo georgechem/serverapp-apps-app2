@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6958d331-8854-4597-9189-cfb042a1e29c" name="Default Changelist" comment="ok">
-      <change afterPath="$PROJECT_DIR$/public/users/patryk.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/users/test@o2/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/patryk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/users/test@o2/patryk.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/test@o2/patryk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/test@o2/text.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +139,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\symfony\serverapp\apps\app2\public\users\test@o2" />
       <recent name="C:\Projects\symfony\serverapp\apps\app2\assets\components\indexDefault" />
     </key>
   </component>
@@ -161,13 +160,6 @@
       <workItem from="1618071864350" duration="13565000" />
       <workItem from="1618121177551" duration="14894000" />
       <workItem from="1618139652249" duration="5989000" />
-    </task>
-    <task id="LOCAL-00028" summary="ok">
-      <created>1618041542896</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1618041542896</updated>
     </task>
     <task id="LOCAL-00029" summary="ok">
       <created>1618042161888</created>
@@ -505,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618157657070</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="ok">
+      <created>1618158614185</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1618158614185</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

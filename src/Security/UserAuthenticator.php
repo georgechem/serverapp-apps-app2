@@ -112,7 +112,9 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
         $userDir = $this->kernel->getProjectDir();
-        $this->filesystem->mkdir($userDir.'/users/'.'test');
+        $tmpFolder = $request->request->get('login')['email'];
+        $folder = explode('.',$tmpFolder);
+        $this->filesystem->mkdir($userDir.'/users/'.$folder[0]);
 
         $targetPath = $this->urlGenerator->generate('homepage');
         return new RedirectResponse($targetPath);

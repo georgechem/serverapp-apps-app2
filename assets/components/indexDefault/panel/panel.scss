@@ -1,15 +1,18 @@
 
 .Panel{
+  max-width: 200px;
   position: absolute;
   top:49px;
   right:0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-wrap:wrap;
   background-color: #111;
   color: #fff;
   padding: 5px;
   border-radius: 5px 0 0 5px;
+  font-size: 0.8rem;
 
   &__button{
     color: #fff;

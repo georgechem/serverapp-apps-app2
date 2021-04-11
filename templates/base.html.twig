@@ -16,14 +16,23 @@
     <div id="panelButton" class="Panel__button">
         <i class="far fa-dot-circle"></i>
     </div>
-    <div class="Panel">
-
+    <div id="panel" class="Panel">
         <div class="Panel__status">
-            user:
+            user:&nbsp;
             {% if app.user is not null %}
                 {{ app.user.email }}
             {% else %}
                 not logged
+            {% endif %}
+        </div>
+        <div class="">
+            role:&nbsp;
+            {% if app.user is not null %}
+                {% for role in app.user.roles %}
+                    {{ role }}
+                {% endfor %}
+            {% else %}
+                N/A
             {% endif %}
         </div>
     </div>

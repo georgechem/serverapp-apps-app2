@@ -4,6 +4,7 @@ namespace App\Security;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -52,22 +53,28 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
 
     public function getCredentials(Request $request)
     {
+
         $credentials = [
             'email' => $request->request->get('login')['email'],
             'password' => $request->request->get('login')['password'],
+            'csrf_token' => $request->request->get('login')['_token'],
         ];
 
         $request->getSession()->set(
             Security::LAST_USERNAME,
             $credentials['email']
         );
-
         return $credentials;
 
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
+        $token = new CsrfToken('login_form', $credentials['csrf_token']);
+
+        if (!$this->csrfTokenManager->isTokenValid($token)) {
+            throw new InvalidCsrfTokenException();
+        }
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
@@ -81,7 +88,6 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
     public function checkCredentials($credentials, UserInterface $user)
     {
 
-
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
 
     }
@@ -89,13 +95,15 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
         // todo
-        dd('bad');
+
+
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
         // todo
-        dd('ok');
+        $targetPath = $this->urlGenerator->generate('homepage');
+        return new RedirectResponse($targetPath);
     }
 
     public function start(Request $request, AuthenticationException $authException = null)

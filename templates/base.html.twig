@@ -48,7 +48,7 @@
         </div>
         <div id="usersSide" class="menuSide hidden">
             <ul>
-                {% if app.user is defined%}
+                {% if app.user is null%}
                     <li>
                         <a href="{{ path('app_login') }}">log in</a>
                     </li>
@@ -57,7 +57,7 @@
                     </li>
                 {% else %}
                     <li>
-                        <a href="">log out</a>
+                        <a href="{{ path('app_logout') }}">log out</a>
                     </li>
                 {% endif %}
             </ul>

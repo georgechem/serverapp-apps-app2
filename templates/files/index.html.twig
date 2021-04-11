@@ -23,6 +23,11 @@
                         <i class="fas fa-eye"></i>
                     </a>
                 </span>
+                <span class="Files__content__item--delete">
+                    <a class="Files__content__item--delete" href="{{ path('app_deleteFile', {'filename': fileInfo[no]['filename']}) }}">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </span>
                 <span class="Files__content__item--size">{{ fileInfo[no]['size'] }}&nbsp;bytes</span>
                 <span class="Files__content__item--owner">owner:{{ fileInfo[no]['fileOwner'] }}</span>
             </div>

@@ -23,16 +23,24 @@
         margin: 0 10px;
       }
       &--download{
+        margin: 0 5px;
         text-decoration: none;
         cursor: pointer;
         color: darkgreen;
         font-size: 2rem;
       }
       &--show{
-        margin: 0 10px;
+        margin: 0 5px;
         text-decoration: none;
         cursor: pointer;
         font-size: 2rem;
+      }
+      &--delete{
+        margin: 0 5px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 2rem;
+        color:red;
       }
       &--size{
         font-size: 0.8rem;

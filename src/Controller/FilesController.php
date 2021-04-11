@@ -67,5 +67,19 @@ class FilesController extends AbstractController
 
         return $this->file($file, 'tmp', ResponseHeaderBag::DISPOSITION_INLINE);
     }
+    #[Route('/deleteFile/{filename}', name: 'app_deleteFile')]
+    public function deleteFile(string $filename, Filesystem $filesystem)
+    {
+        $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
+
+        $status = $filesystem->exists($path.$filename);
+
+        if($status){
+            $file = new File($path.$filename);
+            $filesystem->remove($file);
+        }
+
+        return $this->forward('App\Controller\FilesController::index');
+    }
 
 }

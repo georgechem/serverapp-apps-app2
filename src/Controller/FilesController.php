@@ -34,7 +34,7 @@ class FilesController extends AbstractController
             $fileInfo[] = [
                 'size'=>filesize($fullPath.$file),
                 'fileOwner'=>$this->getUser()->getUsername(),
-                'fileLink'=>$fullPath.$file,
+                'fileLink'=>$catalog.$file,
             ];
         }
         closedir($catalog);

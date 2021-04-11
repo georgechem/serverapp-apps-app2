@@ -13,9 +13,13 @@
             <div class="Files__content__item">
                 <span class="Files__content__item--number">{{ no }}.</span>
                 <span class="Files__content__item--filename">{{ file }}</span>
-                <span class="Files__content__item--download"><i class="fas fa-file-download"></i></span>
+                <span class="Files__content__item--download">
+                    <a href="{{ fileInfo[no]['fileLink'] }}">
+                        <i class="fas fa-file-download"></i>
+                    </a>
+                </span>
                 <span class="Files__content__item--size">{{ fileInfo[no]['size'] }}&nbsp;bytes</span>
-                <span>owner:{{ fileInfo[no]['fileOwner']['name'] }}</span>
+                <span class="Files__content__item--owner">owner:{{ fileInfo[no]['fileOwner'] }}</span>
             </div>
         {% endfor %}
     </div>

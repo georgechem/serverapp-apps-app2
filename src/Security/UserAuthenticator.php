@@ -32,6 +32,7 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
     private CsrfTokenManagerInterface $csrfTokenManager;
     private EntityManagerInterface $entityManager;
 
+
     public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, UserPasswordEncoderInterface $passwordEncoder, CsrfTokenManagerInterface $csrfTokenManager)
     {
 
@@ -39,6 +40,7 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
         $this->passwordEncoder = $passwordEncoder;
         $this->csrfTokenManager = $csrfTokenManager;
         $this->entityManager = $entityManager;
+
     }
 
 
@@ -87,28 +89,32 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-
-        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+        if($this->passwordEncoder->isPasswordValid($user, $credentials['password'])){
+            return true;
+        }
+        throw new CustomUserMessageAuthenticationException('Invalid Password');
 
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        // todo
-
+        $request->getSession()->set(
+            Security::AUTHENTICATION_ERROR,
+            $exception->getMessage(),
+        );
 
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
-        // todo
         $targetPath = $this->urlGenerator->generate('homepage');
         return new RedirectResponse($targetPath);
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        // todo
+        $targetPath = $this->urlGenerator->generate('app_login');
+        return new RedirectResponse($targetPath);
     }
 
     public function supportsRememberMe()

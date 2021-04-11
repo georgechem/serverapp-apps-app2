@@ -6,7 +6,9 @@
 {% endblock %}
 {% block body %}
     {% if error is defined %}
-    <div class="Login__error">{{ error }}</div>
+        {% if error is not null %}
+            <div class="Login__error">{{ error }}</div>
+        {% endif %}
     {% endif %}
     <div class="Login">
         <div class="Login__form">

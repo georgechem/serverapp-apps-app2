@@ -18,14 +18,14 @@ class LoginType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class,[
-                'attr'=>['class'=>'Login__form__input'],
+                'attr'=>['class'=>'Login__form__input', 'autocomplete'=>'on'],
                 'label_attr'=>['class'=>'Login__form__label'],
             ])
             ->add('roles', HiddenType::class,[
                 'attr'=>['name'=>'ROLE_USER'],
             ])
             ->add('password', PasswordType::class,[
-                'attr'=>['class'=>'Login__form__input'],
+                'attr'=>['class'=>'Login__form__input', 'autocomplete'=>'off'],
                 'label_attr'=>['class'=>'Login__form__label'],
             ])
             ->add('login',SubmitType::class,[

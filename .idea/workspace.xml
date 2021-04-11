@@ -4,7 +4,9 @@
     <list default="true" id="6958d331-8854-4597-9189-cfb042a1e29c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/indexDefault/files/files.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/indexDefault/files/files.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FilesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/files/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/files/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/test@o2/patryk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/users/test@o2/patryk.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,13 +160,6 @@
       <workItem from="1618071864350" duration="13565000" />
       <workItem from="1618121177551" duration="14894000" />
       <workItem from="1618139652249" duration="5989000" />
-    </task>
-    <task id="LOCAL-00020" summary="ok">
-      <created>1617908002022</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1617908002022</updated>
     </task>
     <task id="LOCAL-00021" summary="ok">
       <created>1617908220822</created>
@@ -502,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618152920948</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="ok">
+      <created>1618153634957</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1618153634957</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

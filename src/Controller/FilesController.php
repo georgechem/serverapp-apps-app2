@@ -15,7 +15,6 @@ class FilesController extends AbstractController
     #[Route('/showFiles', name: 'app_show_files')]
     public function index(): Response
     {
-
         /**
          * Get Root Directory for All Users
          * Get Specific Folder for certain User
@@ -28,13 +27,23 @@ class FilesController extends AbstractController
          */
         $catalog = opendir($fullPath);
         $fileList = [];
+        $fileInfo = [];
         while(false !== ($file = readdir($catalog))){
             if($file !== '.' && $file !== '..')
             $fileList[] = $file;
+            $fileInfo[] = [
+                'size'=>filesize($fullPath.$file),
+                'fileOwner'=>fileowner($fullPath.$file),
+            ];
         }
+        closedir($catalog);
+        /**
+         * Get additional info about files
+         */
 
         return $this->render('files/index.html.twig', [
-           'files' => $fileList
+           'files' => $fileList,
+            'fileInfo'=>$fileInfo,
         ]);
     }
 }

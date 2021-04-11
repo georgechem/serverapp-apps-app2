@@ -12,7 +12,9 @@
         {% for  no, file in files %}
             <div class="Files__content__item">
                 <span class="Files__content__item--number">{{ no }}.</span>
-                <span>{{ file }}</span>
+                <span class="Files__content__item--filename">{{ file }}</span>
+                <span class="Files__content__item--download"><i class="fas fa-file-download"></i></span>
+                {{ fileInfo[no]['fileOwner'] }}
             </div>
         {% endfor %}
     </div>

@@ -6,15 +6,26 @@
     //text-align: center;
     display: flex;
     flex-direction: column;
-    align-content: space-around;
+    align-content: space-evenly;
     flex-wrap: wrap;
     &__item{
+      padding: 5px;
+      border-bottom: 1px dashed #666;
+      font-family: sans-serif;
       margin: 10px 5px;
       &--number{
         border: 1px solid #777;
         padding: 5px;
         background-color: #fff;
         color: #000;
+      }
+      &--filename{
+        margin: 0 10px;
+      }
+      &--download{
+        cursor: pointer;
+        color: darkgreen;
+        font-size: 2rem;
       }
 
     }

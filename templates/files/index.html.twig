@@ -14,7 +14,7 @@
                 <span class="Files__content__item--number">{{ no }}.</span>
                 <span class="Files__content__item--filename">{{ file }}</span>
                 <span class="Files__content__item--download">
-                    <a href="{{ fileInfo[no]['fileLink'] }}">
+                    <a href="{{ path('app_download', {'filename': fileInfo[no]['filename']}) }}">
                         <i class="fas fa-file-download"></i>
                     </a>
                 </span>

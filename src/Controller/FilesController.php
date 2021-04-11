@@ -5,6 +5,7 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,23 +17,7 @@ class FilesController extends AbstractController
     #[Route('/showFiles', name: 'app_show_files')]
     public function index(Filesystem $filesystem): Response
     {
-        /**
-         * Prepare
-         */
-        /*
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header("Cache-Control: no-cache, must-revalidate");
-        header("Expires: 0");
-        header('Content-Disposition: attachment; filename="'.basename($filename).'"');
-        header('Content-Length: ' . filesize($filename));
-        header('Pragma: public');
-        */
-        /**
-         * Get Root Directory for All Users
-         * Get Specific Folder for certain User
-         * Combine Full Path for User specific files
-         */
+
         //$fullPath = $this->getParameter('userRoot').explode('.',$this->getUser()->getUsername())[0].'/';
         $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
         /**
@@ -44,11 +29,10 @@ class FilesController extends AbstractController
         while(false !== ($file = readdir($catalog))){
             if($file !== '.' && $file !== '..'){
                 $fileList[] = $file;
-                //$filesystem->symlink($fullPath.$file, '/users/'.$file);
                 $fileInfo[] = [
                     'size'=>filesize($path.$file),
                     'fileOwner'=>$this->getUser()->getUsername(),
-                    'fileLink'=>$path.$file,
+                    'filename'=>$file,
                 ];
             }
         }
@@ -62,4 +46,15 @@ class FilesController extends AbstractController
             'fileInfo'=>$fileInfo,
         ]);
     }
+
+    #[Route('/downloadFile/{filename}', name: 'app_download')]
+    public function downloadFile(string $filename)
+    {
+        $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
+
+        $file = new File($path.$filename);
+
+        return $this->file($file);
+    }
+
 }

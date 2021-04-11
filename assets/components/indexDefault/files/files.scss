@@ -1,12 +1,13 @@
 .Files {
   max-width: 600px;
   margin: 20px auto;
-  &__text{
+  &__content{
     text-align: center;
+    &__item{
+
+    }
   }
 }
-p {
-  font-family: sans-serif;
-  margin:5px;
-  font-size: 1.5rem;
+h1 {
+  margin: 20px;
 }

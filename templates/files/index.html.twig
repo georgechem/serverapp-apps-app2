@@ -7,10 +7,12 @@
 
 {% block body %}
 <main class="Files">
-    <div class="Files__text">
-        Your files:
+    <div class="Files__content">
+        <h1>Your files:</h1>
         {% for  no, file in files %}
-            <p><span><mark>{{ no }}.</mark></span>{{ file }}</p>
+            <div class="Files__content__item">
+                <p><span><mark>{{ no }}.</mark></span>{{ file }}</p>
+            </div>
         {% endfor %}
     </div>
 </main>

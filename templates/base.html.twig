@@ -64,9 +64,6 @@
                 <li>
                     <a href="">dashboard</a>
                 </li>
-                <li>
-                    <a href="">optional</a>
-                </li>
             </ul>
         </div>
         <div id="usersSide" class="menuSide hidden">
@@ -85,6 +82,22 @@
                 {% endif %}
             </ul>
         </div>
+        <div id="settingsSide" class="menuSide hidden">
+            <ul>
+                <li>
+                    <a href="">settings</a>
+                </li>
+            </ul>
+        </div>
+        {% if app.user is not null %}
+        <div id="filesSide" class="menuSide hidden">
+            <ul>
+                <li>
+                    <a href="">files</a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
         {#
         <main class="content" id="main">
 

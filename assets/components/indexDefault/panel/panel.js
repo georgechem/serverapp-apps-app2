@@ -29,5 +29,4 @@ panelButton.addEventListener('click', ()=>{
             panel.style.transform = `translateX(${panelOffsetX}px)`;
         });
     }
-    console.log(transformX);
 });

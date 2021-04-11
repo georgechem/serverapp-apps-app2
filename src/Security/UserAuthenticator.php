@@ -4,8 +4,10 @@ namespace App\Security;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -31,16 +33,19 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
     private UserPasswordEncoderInterface $passwordEncoder;
     private CsrfTokenManagerInterface $csrfTokenManager;
     private EntityManagerInterface $entityManager;
+    private Filesystem $filesystem;
+    private $kernel;
 
 
-    public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, UserPasswordEncoderInterface $passwordEncoder, CsrfTokenManagerInterface $csrfTokenManager)
+    public function __construct(KernelInterface $kernel,Filesystem $filesystem,EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, UserPasswordEncoderInterface $passwordEncoder, CsrfTokenManagerInterface $csrfTokenManager)
     {
 
         $this->urlGenerator = $urlGenerator;
         $this->passwordEncoder = $passwordEncoder;
         $this->csrfTokenManager = $csrfTokenManager;
         $this->entityManager = $entityManager;
-
+        $this->filesystem = $filesystem;
+        $this->kernel = $kernel;
     }
 
 
@@ -102,11 +107,13 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
             Security::AUTHENTICATION_ERROR,
             $exception->getMessage(),
         );
-
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
+        $userDir = $this->kernel->getProjectDir();
+        $this->filesystem->mkdir($userDir.'/users/'.'test');
+
         $targetPath = $this->urlGenerator->generate('homepage');
         return new RedirectResponse($targetPath);
     }

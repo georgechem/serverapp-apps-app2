@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6958d331-8854-4597-9189-cfb042a1e29c" name="Default Changelist" comment="ok">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/indexDefault/files/files.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/indexDefault/files/files.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/users/test@o2/patryk.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/users/test@o2/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/files/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/files/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

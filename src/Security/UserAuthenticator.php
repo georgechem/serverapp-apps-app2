@@ -53,25 +53,21 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'email' => $request->request->get('email'),
-            'password' => $request->request->get('password'),
-            'csrf_token' => $request->request->get('_csrf_token'),
+            'email' => $request->request->get('login')['email'],
+            'password' => $request->request->get('login')['password'],
         ];
+
         $request->getSession()->set(
             Security::LAST_USERNAME,
             $credentials['email']
         );
+
         return $credentials;
 
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        /*
-        $token = new CsrfToken('authenticate', $credentials['csrf_token']);
-        if (!$this->csrfTokenManager->isTokenValid($token)) {
-            throw new InvalidCsrfTokenException();
-        }*/
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
@@ -79,14 +75,13 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator implements Passwo
             // fail authentication with a custom error
             throw new CustomUserMessageAuthenticationException('Email could not be found.');
         }
-
         return $user;
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
 
-        dd($user);
+
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
 
     }

@@ -17,6 +17,18 @@ class FilesController extends AbstractController
     public function index(Filesystem $filesystem): Response
     {
         /**
+         * Prepare
+         */
+        /*
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Expires: 0");
+        header('Content-Disposition: attachment; filename="'.basename($filename).'"');
+        header('Content-Length: ' . filesize($filename));
+        header('Pragma: public');
+        */
+        /**
          * Get Root Directory for All Users
          * Get Specific Folder for certain User
          * Combine Full Path for User specific files

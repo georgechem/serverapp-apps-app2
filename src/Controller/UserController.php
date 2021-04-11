@@ -44,7 +44,7 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            //dd($user);
+
         }
 
         return $this->render('user/index.html.twig', [

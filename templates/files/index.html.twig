@@ -14,7 +14,8 @@
                 <span class="Files__content__item--number">{{ no }}.</span>
                 <span class="Files__content__item--filename">{{ file }}</span>
                 <span class="Files__content__item--download"><i class="fas fa-file-download"></i></span>
-                {{ fileInfo[no]['size'] }}
+                <span class="Files__content__item--size">{{ fileInfo[no]['size'] }}&nbsp;bytes</span>
+                <span>owner:{{ fileInfo[no]['size'] }}</span>
             </div>
         {% endfor %}
     </div>

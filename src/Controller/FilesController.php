@@ -33,7 +33,7 @@ class FilesController extends AbstractController
             $fileList[] = $file;
             $fileInfo[] = [
                 'size'=>filesize($fullPath.$file),
-                'fileOwner'=>fileowner($fullPath.$file),
+                'fileOwner'=>posix_getpwuid(fileowner($fullPath.$file)),
             ];
         }
         closedir($catalog);

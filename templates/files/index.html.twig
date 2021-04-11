@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Files{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{%  endblock %}
+
+{% block body %}
+<main class="Files">
+    <div class="Files__text">
+        Your files:
+        {% for  no, file in files %}
+            <p><span><mark>{{ no }}.</mark></span>{{ file }}</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

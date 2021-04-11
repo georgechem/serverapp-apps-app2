@@ -34,3 +34,8 @@ import './components/indexDefault/forms/login.scss';
  */
 import './components/indexDefault/panel/panel';
 import './components/indexDefault/panel/panel.scss';
+/**
+ * Files page
+ */
+import './components/indexDefault/files/files';
+import './components/indexDefault/files/files.scss';

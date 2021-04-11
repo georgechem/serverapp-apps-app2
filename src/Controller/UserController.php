@@ -20,10 +20,10 @@ class UserController extends AbstractController
         $user = new User();
         $form = $this->createForm(LoginType::class, $user);
         $form->handleRequest($request);
-
+        /*
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
-        }
+        }*/
 
         return $this->render('user/index.html.twig', [
                 'form' => $form->createView(),

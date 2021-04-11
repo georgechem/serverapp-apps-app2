@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -55,6 +56,16 @@ class FilesController extends AbstractController
         $file = new File($path.$filename);
 
         return $this->file($file);
+    }
+
+    #[Route('/displayFile/{filename}', name: 'app_displayFile')]
+    public function displayFile(string $filename)
+    {
+        $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
+
+        $file = new File($path.$filename);
+
+        return $this->file($file, 'tmp', ResponseHeaderBag::DISPOSITION_INLINE);
     }
 
 }

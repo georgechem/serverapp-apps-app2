@@ -1,7 +1,7 @@
 .Files {
-  max-width: 400px;
+  max-width: 600px;
   margin: 20px auto;
-
+  padding: 0 5px 0 40px;
   &__content{
     //text-align: center;
     display: flex;
@@ -23,8 +23,15 @@
         margin: 0 10px;
       }
       &--download{
+        text-decoration: none;
         cursor: pointer;
         color: darkgreen;
+        font-size: 2rem;
+      }
+      &--show{
+        margin: 0 10px;
+        text-decoration: none;
+        cursor: pointer;
         font-size: 2rem;
       }
       &--size{

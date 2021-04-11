@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
@@ -33,7 +34,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordEncoderInterface $encoder):Response
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, AuthenticationUtils $authenticationUtils):Response
     {
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -41,15 +42,28 @@ class UserController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
-            $user->setPassword($encoder->encodePassword($user,$user->getPassword()));
+            // check is user already exists
             $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-
+            $alreadyUser = $em->getRepository(User::class)->findOneBy([
+                'email'=>$user->getEmail()
+            ]);
+            if($alreadyUser){
+                $request->getSession()->set(
+                    Security::AUTHENTICATION_ERROR,
+                    'User already exist',
+                );
+            }else{
+                $user->setPassword($encoder->encodePassword($user,$user->getPassword()));
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+            }
         }
+        $error = $authenticationUtils->getLastAuthenticationError();
 
         return $this->render('user/index.html.twig', [
             'form' => $form->createView(),
+            'error'=>$error,
         ]);
     }
 

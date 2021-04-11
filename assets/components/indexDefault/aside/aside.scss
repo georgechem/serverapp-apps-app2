@@ -84,6 +84,9 @@ $bp-mobile: 501px;
   color:#ccc;
   background-color: #111;
   left:40px;
+  @media  (min-width: $bp-mobile){
+    left:64px;
+  }
   position: absolute;
   font-family: sans-serif;
   & > ul {

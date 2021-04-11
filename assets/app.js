@@ -26,6 +26,11 @@ import './components/indexDefault/main/main.scss';
 import './components/indexDefault/main/main';
 
 /**
- * Login Form styles
+ * Login & Register Form styles
  */
 import './components/indexDefault/forms/login.scss';
+/**
+ * Right Panel
+ */
+import './components/indexDefault/panel/panel';
+import './components/indexDefault/panel/panel.scss';

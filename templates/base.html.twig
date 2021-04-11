@@ -13,6 +13,20 @@
 
     </head>
     <body>
+    <div id="panelButton" class="Panel__button">
+        <i class="far fa-dot-circle"></i>
+    </div>
+    <div class="Panel">
+
+        <div class="Panel__status">
+            user:
+            {% if app.user is not null %}
+                {{ app.user.email }}
+            {% else %}
+                not logged
+            {% endif %}
+        </div>
+    </div>
     <div class="defaultIndex">
         <aside class="menu" id="aside">
             <div id="menu--icons" class="menu__icons">

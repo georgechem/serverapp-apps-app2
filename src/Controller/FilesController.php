@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FilesController extends AbstractController
 {
     #[Route('/showFiles', name: 'app_show_files')]
-    public function index(): Response
+    public function index(Filesystem $filesystem): Response
     {
         /**
          * Get Root Directory for All Users
@@ -29,13 +30,15 @@ class FilesController extends AbstractController
         $fileList = [];
         $fileInfo = [];
         while(false !== ($file = readdir($catalog))){
-            if($file !== '.' && $file !== '..')
-            $fileList[] = $file;
-            $fileInfo[] = [
-                'size'=>filesize($fullPath.$file),
-                'fileOwner'=>$this->getUser()->getUsername(),
-                'fileLink'=>$catalog.$file,
-            ];
+            if($file !== '.' && $file !== '..'){
+                $fileList[] = $file;
+                $filesystem->symlink($fullPath.$file, $file);
+                $fileInfo[] = [
+                    'size'=>filesize($fullPath.$file),
+                    'fileOwner'=>$this->getUser()->getUsername(),
+                    'fileLink'=>$filesystem->readlink($file),
+                ];
+            }
         }
         closedir($catalog);
         /**

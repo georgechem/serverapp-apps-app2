@@ -1,3 +1,8 @@
+/**
+ * Idea - do on server endpoint where session variable will be accesible
+ * do regular request to that end point request
+ */
+
 const progressBar = document.getElementById('progress');
 progressBar.style.backgroundColor = `#000000`;
 progressBar.style.opacity = 0.7;

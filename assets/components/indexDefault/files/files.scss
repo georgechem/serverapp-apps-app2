@@ -3,43 +3,44 @@
   margin: 20px auto;
   padding: 0 5px 0 40px;
   &__content{
-    //text-align: center;
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
     flex-wrap: wrap;
     &__item{
       padding: 5px;
-      border-bottom: 1px dashed #666;
+      border: 1px solid #888;
+      background-color: #fff;
       font-family: sans-serif;
       margin: 10px 5px;
       &--number{
         border: 1px solid #777;
-        padding: 5px;
+        padding: 2.5px;
         background-color: #fff;
         color: #000;
       }
       &--filename{
         margin: 0 10px;
+        font-size: 0.8rem;
       }
       &--download{
         margin: 0 5px;
         text-decoration: none;
         cursor: pointer;
         color: darkgreen;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       &--show{
         margin: 0 5px;
         text-decoration: none;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       &--delete{
         margin: 0 5px;
         text-decoration: none;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color:red;
       }
       &--size{
@@ -48,6 +49,10 @@
       &--owner{
         font-size: 0.8rem;
         margin: 0 10px;
+      }
+      &__box{
+        margin: 5px 0;
+        text-align: center;
       }
 
     }

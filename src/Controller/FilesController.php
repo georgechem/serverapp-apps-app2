@@ -6,6 +6,7 @@ use App\Form\UploadType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,11 +56,13 @@ class FilesController extends AbstractController
         $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
 
         $file = new File($path.$filename);
-        //dd($file);
-
-        return $file;
+        //return $file;
 
         //return $this->file($file);
+        /**
+         * Streaming
+         */
+        return new BinaryFileResponse($file);
     }
 
     #[Route('/displayFile/{filename}', name: 'app_displayFile')]
@@ -69,8 +72,8 @@ class FilesController extends AbstractController
 
         $file = new File($path.$filename);
 
-
-        return $this->file($file, 'tmp', ResponseHeaderBag::DISPOSITION_INLINE);
+        //return $this->file($file, 'tmp', ResponseHeaderBag::DISPOSITION_INLINE);
+        return new BinaryFileResponse($file);
     }
     #[Route('/deleteFile/{filename}', name: 'app_deleteFile')]
     public function deleteFile(string $filename, Filesystem $filesystem)

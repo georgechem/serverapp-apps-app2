@@ -90,7 +90,14 @@ class FilesController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-
+            // Get user path to files
+            $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
+            $file = $form['filename']->getData();
+            $userFileName = $form['name']->getData();
+            $fileNameFiltered = $userFileName;
+            //do security checks to not allow user upload certain files
+            $file->move($path, $fileNameFiltered);
+            return $this->forward('App\Controller\FilesController::index');
         }
 
         return $this->render('files/upload.html.twig',[

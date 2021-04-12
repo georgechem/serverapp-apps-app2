@@ -18,6 +18,15 @@
       color:blue;
       margin: 20px 5px;
     }
+    &__userInput{
+      padding: 5px;
+      text-align: center;
+      margin: 10px 0;
+      &--label{
+        display: block;
+        font-size: 0.8rem;
+      }
+    }
     &__submit{
       cursor: pointer;
       padding: 5px 10px;

@@ -8,8 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\Stream;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -55,14 +57,11 @@ class FilesController extends AbstractController
         $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
 
         $file = new File($path.$filename);
-        //return $file;
+        $newFile = new BinaryFileResponse($file, 200, [
+            'Content-Length'=> $file->getSize()+5000,
+        ]);
+        return $this->file($file);
 
-        //return $this->file($file);
-       return new BinaryFileResponse($file, 200, [
-           'Content-Length'=> $file->getSize(),
-       ]);
-
-        //return new BinaryFileResponse($file);
     }
 
     #[Route('/displayFile/{filename}', name: 'app_displayFile')]
@@ -103,6 +102,7 @@ class FilesController extends AbstractController
             $userFileName = $form['name']->getData();
             $fileNameFiltered = $userFileName;
             //do security checks to not allow user upload certain files
+
             $file->move($path, $fileNameFiltered);
             return $this->forward('App\Controller\FilesController::index');
         }

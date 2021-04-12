@@ -55,6 +55,7 @@ class FilesController extends AbstractController
         $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
 
         $file = new File($path.$filename);
+        dd($file);
 
         return $this->file($file);
     }

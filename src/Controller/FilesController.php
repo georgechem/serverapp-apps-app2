@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -59,10 +58,11 @@ class FilesController extends AbstractController
         //return $file;
 
         //return $this->file($file);
-        /**
-         * Streaming
-         */
-        return new BinaryFileResponse($file);
+       return new BinaryFileResponse($file, 200, [
+           'Content-Length'=> $file->getSize(),
+       ]);
+
+        //return new BinaryFileResponse($file);
     }
 
     #[Route('/displayFile/{filename}', name: 'app_displayFile')]

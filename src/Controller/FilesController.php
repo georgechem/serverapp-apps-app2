@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Form\UploadType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
@@ -82,9 +84,18 @@ class FilesController extends AbstractController
     }
 
     #[Route('/uploadFile', name: 'app_uploadFile')]
-    public function uploadFile()
+    public function uploadFile(Request $request)
     {
-        return $this->render('files/upload.html.twig',[]);
+        $form = $this->createForm(UploadType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+        }
+
+        return $this->render('files/upload.html.twig',[
+            'form'=> $form->createView(),
+        ]);
     }
 
 }

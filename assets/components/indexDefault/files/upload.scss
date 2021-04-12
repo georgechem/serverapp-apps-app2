@@ -1,0 +1,26 @@
+.Upload {
+  margin: 20px 0 20px 20px;
+  display: flex;
+  justify-content: center;
+  &__container{
+    font-family: sans-serif;
+    max-width: 240px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #999;
+    background-color: #fff;
+    &__label{
+      color:green;
+    }
+    &__input{
+      max-width: 100%;
+      font-family: sans-serif;
+      color:blue;
+      margin: 20px 5px;
+    }
+    &__submit{
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+  }
+}

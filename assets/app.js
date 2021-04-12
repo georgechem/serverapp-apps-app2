@@ -39,3 +39,4 @@ import './components/indexDefault/panel/panel.scss';
  */
 import './components/indexDefault/files/files';
 import './components/indexDefault/files/files.scss';
+import './components/indexDefault/files/upload.scss';

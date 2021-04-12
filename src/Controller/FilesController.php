@@ -96,6 +96,7 @@ class FilesController extends AbstractController
             $userFileName = $form['name']->getData();
             $fileNameFiltered = $userFileName;
             //do security checks to not allow user upload certain files
+
             $file->move($path, $fileNameFiltered);
             return $this->forward('App\Controller\FilesController::index');
         }

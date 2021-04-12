@@ -12,7 +12,8 @@ if(uploadFilename){
     progressBar.style.opacity = 0.7;
     progressBar.style.height = '20px';
     progressBar.style.width = '15px';
-    uploadForm.addEventListener('submit', uploadFile);
+    //uploadForm.addEventListener('submit', uploadFile);
+    uploadForm.addEventListener('submit', testFetch);
 
     function uploadFile(e){
         e.preventDefault();
@@ -23,10 +24,26 @@ if(uploadFilename){
             console.log(e);
         });
 
+    }
 
-
-        //xhr.open("POST", e.target.action);
-
+    function testFetch(e){
+        e.preventDefault();
+        fetch(e.target.action,{
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            body: JSON.stringify('')
+        })
+            .then((res)=>{
+                return res;
+            })
+            .then((result)=>{
+               console.log(result);
+            });
     }
 
 

@@ -11,6 +11,7 @@
     <div class="Files__content">
         {% for  no, file in files %}
             <div class="Files__content__item">
+                <div class="Files__content__item--separator"></div>
                 <span class="Files__content__item--number">{{ no }}</span>
                 <span class="Files__content__item--filename">{{ file }}</span>
                 <span class="Files__content__item--download">
@@ -28,6 +29,9 @@
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </span>
+                <div class="Files__content__item--separator"></div>
+                <div class="Files__content__item--separator"></div>
+                <hr><hr>
                 <p class="Files__content__item__box">
                     <span class="Files__content__item--size"><i class="fas fa-hockey-puck"></i>&nbsp;&nbsp; {{ fileInfo[no]['size'] }}&nbsp;bytes</span>
                     <span class="Files__content__item--owner"><i class="far fa-user"></i>&nbsp;&nbsp; {{ fileInfo[no]['fileOwner'] }}</span>

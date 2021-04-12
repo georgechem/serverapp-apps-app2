@@ -1,18 +1,21 @@
 .Files {
   max-width: 900px;
   margin: 20px auto;
-  padding: 0 5px 0 40px;
+  padding: 0 2px 0 40px;
   &__content{
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
     flex-wrap: wrap;
     &__item{
-      padding: 5px;
+      padding: 3px;
       border: 1px solid #888;
       background-color: #fff;
       font-family: sans-serif;
-      margin: 10px 5px;
+      margin: 10px 2px;
+      &--separator{
+        height: 10px;
+      }
       &--number{
         border: 1px solid #777;
         padding: 2.5px;

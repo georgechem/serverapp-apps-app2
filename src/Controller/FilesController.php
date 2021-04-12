@@ -16,9 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class FilesController extends AbstractController
 {
     #[Route('/showFiles', name: 'app_show_files')]
-    public function index(Filesystem $filesystem): Response
+    public function index(): Response
     {
-
         //$fullPath = $this->getParameter('userRoot').explode('.',$this->getUser()->getUsername())[0].'/';
         $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
         /**
@@ -80,6 +79,12 @@ class FilesController extends AbstractController
         }
 
         return $this->forward('App\Controller\FilesController::index');
+    }
+
+    #[Route('/uploadFile', name: 'app_uploadFile')]
+    public function uploadFile()
+    {
+        return $this->render('files/upload.html.twig',[]);
     }
 
 }

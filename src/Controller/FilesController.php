@@ -55,9 +55,11 @@ class FilesController extends AbstractController
         $path = './users/'.explode('.',$this->getUser()->getUsername())[0].'/';
 
         $file = new File($path.$filename);
-        dd($file);
+        //dd($file);
 
-        return $this->file($file);
+        return $file;
+
+        //return $this->file($file);
     }
 
     #[Route('/displayFile/{filename}', name: 'app_displayFile')]

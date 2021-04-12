@@ -66,6 +66,7 @@ class FilesController extends AbstractController
 
         $file = new File($path.$filename);
 
+
         return $this->file($file, 'tmp', ResponseHeaderBag::DISPOSITION_INLINE);
     }
     #[Route('/deleteFile/{filename}', name: 'app_deleteFile')]
@@ -96,7 +97,6 @@ class FilesController extends AbstractController
             $userFileName = $form['name']->getData();
             $fileNameFiltered = $userFileName;
             //do security checks to not allow user upload certain files
-
             $file->move($path, $fileNameFiltered);
             return $this->forward('App\Controller\FilesController::index');
         }
